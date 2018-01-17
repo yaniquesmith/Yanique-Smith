@@ -2,14 +2,14 @@
   "stats": {
     "suites": 3,
     "tests": 9,
-    "passes": 9,
+    "passes": 8,
     "pending": 0,
-    "failures": 0,
-    "start": "2018-01-17T00:55:12.523Z",
-    "end": "2018-01-17T00:55:12.686Z",
-    "duration": 163,
+    "failures": 1,
+    "start": "2018-01-17T01:13:09.646Z",
+    "end": "2018-01-17T01:13:09.843Z",
+    "duration": 197,
     "testsRegistered": 9,
-    "passPercent": 100,
+    "passPercent": 88.9,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "edbda132-e1c2-46fd-a733-1bffdcd2d8be",
+    "uuid": "98a7209a-5f56-4a7c-a5c5-fea0fbba347c",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "2c5943fb-0c88-44ec-a26d-44c1c7ac8436",
+        "uuid": "6524987d-e84f-41d3-8626-1a573d6fe70a",
         "title": "Git Checks",
         "fullFile": "/Users/yaniquesmith/Desktop/assignment-00-git-and-github/test/test.js",
         "file": "/test/test.js",
@@ -37,14 +37,14 @@
             "title": "\"before all\" hook",
             "fullTitle": "Git Checks \"before all\" hook",
             "timedOut": false,
-            "duration": 124,
+            "duration": 154,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "gitCommits(repoPath)\n  .on('data', function (commit) {\n    if (!matchesProfEmail(commit.author.email, ignoreCommitEmails))\n    {\n      studentCommits++;\n    }\n  })\n  .on('end', function () {\n  })\n;\ngitCheck  = gitState.checkSync('./', function(r,e) {\n  //return [r, e];\n});\ndone();",
             "err": {},
             "isRoot": false,
-            "uuid": "db094561-305a-4d59-b0b3-ec3036f4048b",
+            "uuid": "f0f324af-e1cc-4061-b188-73abbb0e9990",
             "isHook": true,
             "skipped": false
           }
@@ -64,7 +64,7 @@
             "code": "expect(studentCommits).to.be.at.least(minCommits);",
             "err": {},
             "isRoot": false,
-            "uuid": "a8b45f51-b9e4-49b5-a06b-8343878868b1",
+            "uuid": "e30c8ccc-c29a-40b1-90ba-f16c29edeb62",
             "isHook": false,
             "skipped": false
           },
@@ -81,7 +81,7 @@
             "code": "expect(name, \"your Git user name has not been set\").not.to.be.undefined;\nexpect(email, \"your Git email has not been set\").not.to.be.undefined;\nexpect(githubid, \"your Github user name has not been set\").not.to.be.undefined;",
             "err": {},
             "isRoot": false,
-            "uuid": "3f5accce-1abb-4e7e-8dca-6680b258bfc4",
+            "uuid": "6cb90d45-dbea-46cd-9603-b248cd165250",
             "isHook": false,
             "skipped": false
           },
@@ -89,16 +89,19 @@
             "title": "All changes in current directory should be committed to Git (OK for this to fail while you are still working)",
             "fullTitle": "Git Checks All changes in current directory should be committed to Git (OK for this to fail while you are still working)",
             "timedOut": false,
-            "duration": 0,
-            "state": "passed",
-            "speed": "fast",
-            "pass": true,
-            "fail": false,
+            "duration": 2,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
             "pending": false,
             "code": "expect(gitCheck.dirty, \"looks like you have changed some files and not committed the changes yet\").to.equal(0);",
-            "err": {},
+            "err": {
+              "message": "AssertionError: looks like you have changed some files and not committed the changes yet: expected 1 to equal 0",
+              "estack": "AssertionError: looks like you have changed some files and not committed the changes yet: expected 1 to equal 0\n    at Context.<anonymous> (test/test.js:93:107)",
+              "diff": "- 1\n+ 0\n"
+            },
             "isRoot": false,
-            "uuid": "7591cbe5-c3a6-41f6-8ec5-809111a28883",
+            "uuid": "62e90bed-9c55-419a-be47-f075be5f20e8",
             "isHook": false,
             "skipped": false
           },
@@ -115,28 +118,29 @@
             "code": "expect(gitCheck.untracked, \"looks like you have some files in the directory which have not been added to the repository. \\n      Make sure your answers do not rely on them, or tests will fail on the server.\").to.equal(0);",
             "err": {},
             "isRoot": false,
-            "uuid": "e6b0d55e-ad9b-402e-b38e-83ee6a71d735",
+            "uuid": "d8cfadbd-7f05-4511-9fbc-30162160a5c5",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "a8b45f51-b9e4-49b5-a06b-8343878868b1",
-          "3f5accce-1abb-4e7e-8dca-6680b258bfc4",
-          "7591cbe5-c3a6-41f6-8ec5-809111a28883",
-          "e6b0d55e-ad9b-402e-b38e-83ee6a71d735"
+          "e30c8ccc-c29a-40b1-90ba-f16c29edeb62",
+          "6cb90d45-dbea-46cd-9603-b248cd165250",
+          "d8cfadbd-7f05-4511-9fbc-30162160a5c5"
         ],
-        "failures": [],
+        "failures": [
+          "62e90bed-9c55-419a-be47-f075be5f20e8"
+        ],
         "pending": [],
         "skipped": [],
-        "duration": 2,
+        "duration": 4,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0
       },
       {
-        "uuid": "8b13ec5e-06cd-441d-9f41-9a565b5ef42e",
+        "uuid": "1a84262f-93fb-4a2d-ac17-34eeca9cdf73",
         "title": "JSON Checks",
         "fullFile": "/Users/yaniquesmith/Desktop/assignment-00-git-and-github/test/test.js",
         "file": "/test/test.js",
@@ -152,7 +156,7 @@
             "code": "// read the JSON file",
             "err": {},
             "isRoot": false,
-            "uuid": "2963d3ee-a034-48fa-a7e3-273890998e32",
+            "uuid": "a9561bb4-3028-44b1-a615-85faf09aefa6",
             "isHook": true,
             "skipped": false
           }
@@ -172,7 +176,7 @@
             "code": "let p = `students/${githubid}.json`;\nexpect(p).to.be.a.file();",
             "err": {},
             "isRoot": false,
-            "uuid": "2105f4b1-f085-4b97-abbc-c4666a47c706",
+            "uuid": "9f8026c8-c32c-4bb2-9632-e313a3e79f76",
             "isHook": false,
             "skipped": false
           },
@@ -189,7 +193,7 @@
             "code": "let p = `students/${githubid}.json`;\nlet f = fs.readFileSync(p, \"utf-8\");\nexpect(jsonLint.parse(fs.readFileSync(p, \"utf-8\"))).to.not.be.a('error');",
             "err": {},
             "isRoot": false,
-            "uuid": "7feb3ff3-47aa-43ab-a341-6d64d17377e4",
+            "uuid": "adc01857-c29c-405d-8764-78362526e44e",
             "isHook": false,
             "skipped": false
           },
@@ -206,16 +210,16 @@
             "code": "let j = JSON.parse(fs.readFileSync(`students/${githubid}.json`, 'utf8'));\nexpect(j.lastName, \"your JSON file does not record your last name!\").to.be.a(\"string\").that.is.not.empty;\nexpect(j.firstName, \"your JSON file does not record your first name!\").to.be.a(\"string\").that.is.not.empty;\nexpect(j.github, \"your gituhubid doesn't seem to be recorded properly\").to.equal(githubid);\nexpect(j.picture, \"your JSON file does not record your picture URL or path\").to.be.a(\"string\").that.is.not.empty;",
             "err": {},
             "isRoot": false,
-            "uuid": "f9d6ade6-0057-4f65-b05d-7ed760540289",
+            "uuid": "eb9b2f4c-7a6f-4615-95a1-7ac0633eff4e",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "2105f4b1-f085-4b97-abbc-c4666a47c706",
-          "7feb3ff3-47aa-43ab-a341-6d64d17377e4",
-          "f9d6ade6-0057-4f65-b05d-7ed760540289"
+          "9f8026c8-c32c-4bb2-9632-e313a3e79f76",
+          "adc01857-c29c-405d-8764-78362526e44e",
+          "eb9b2f4c-7a6f-4615-95a1-7ac0633eff4e"
         ],
         "failures": [],
         "pending": [],
@@ -226,7 +230,7 @@
         "_timeout": 0
       },
       {
-        "uuid": "14f264b1-42e6-4bd9-9a5c-827e7731172c",
+        "uuid": "831a1186-f363-4366-876b-c54769171822",
         "title": "Reflection Checks (not required unless you are attempting an \"A\" grade!)",
         "fullFile": "/Users/yaniquesmith/Desktop/assignment-00-git-and-github/test/test.js",
         "file": "/test/test.js",
@@ -237,7 +241,7 @@
             "title": "Reflection file should exist",
             "fullTitle": "Reflection Checks (not required unless you are attempting an \"A\" grade!) Reflection file should exist",
             "timedOut": false,
-            "duration": 0,
+            "duration": 1,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -246,7 +250,7 @@
             "code": "let r = `Reflection/${githubid}.md`;\nexpect(r, `I can't find the file ${r}`).to.be.a.file();",
             "err": {},
             "isRoot": false,
-            "uuid": "f2c0df3e-7255-4e5c-9204-b452656c37fc",
+            "uuid": "0f52d075-c193-4e51-a7d7-dbf5021a1913",
             "isHook": false,
             "skipped": false
           },
@@ -254,7 +258,7 @@
             "title": "The total word count for your reflection should be at least 275",
             "fullTitle": "Reflection Checks (not required unless you are attempting an \"A\" grade!) The total word count for your reflection should be at least 275",
             "timedOut": false,
-            "duration": 4,
+            "duration": 5,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -263,20 +267,20 @@
             "code": "let content=fs.readFileSync(`Reflection/${githubid}.md`, 'utf-8');\nexpect(hwc(content), \"\").to.be.at.least(275);",
             "err": {},
             "isRoot": false,
-            "uuid": "258f1216-cc29-4813-976e-7db74e19737e",
+            "uuid": "3dc5a2ea-8cbb-44e9-94a7-bace25d7d27c",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "f2c0df3e-7255-4e5c-9204-b452656c37fc",
-          "258f1216-cc29-4813-976e-7db74e19737e"
+          "0f52d075-c193-4e51-a7d7-dbf5021a1913",
+          "3dc5a2ea-8cbb-44e9-94a7-bace25d7d27c"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 4,
+        "duration": 6,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0
